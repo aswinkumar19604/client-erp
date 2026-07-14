@@ -1,0 +1,141 @@
+.sales-container {
+  padding: 30px;
+}
+
+.sales-form {
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, 1fr);
+
+  gap: 15px;
+
+  margin-bottom: 20px;
+}
+
+.sales-form input,
+.sales-form select {
+
+  padding: 12px;
+
+  border: 1px solid #ccc;
+
+  border-radius: 8px;
+}
+
+.sales-form button {
+
+  padding: 12px;
+
+  border: none;
+
+  background: #2563eb;
+
+  color: white;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+  background: white;
+}
+
+table th,
+table td {
+
+  border: 1px solid #ddd;
+
+  padding: 12px;
+
+  text-align: center;
+}
+
+table th {
+
+  background: #111827;
+
+  color: white;
+}
+
+.back-btn {
+
+  width: 40px;
+
+  height: 40px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #111827;
+
+  color: white;
+
+  cursor: pointer;
+
+  margin-bottom: 20px;
+}
+
+.delete-btn {
+
+  width: 35px;
+
+  height: 35px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: red;
+
+  color: white;
+
+  cursor: pointer;
+}
+.pdf-btn {
+
+  width: 35px;
+
+  height: 35px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #dc2626;
+
+  color: white;
+
+  cursor: pointer;
+
+  margin-right: 10px;
+}
+.top-actions{
+  display:flex;
+  justify-content:flex-end;
+  margin-bottom:20px;
+}
+
+.excel-btn{
+  background:green;
+  color:white;
+  border:none;
+  padding:10px 15px;
+  border-radius:5px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:14px;
+}
+
+.excel-btn:hover{
+  opacity:0.9;
+}

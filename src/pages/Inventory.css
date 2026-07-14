@@ -1,0 +1,124 @@
+.inventory-container {
+  padding: 30px;
+}
+
+.inventory-form {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 15px;
+
+  margin-bottom: 20px;
+}
+
+.inventory-form input,
+.inventory-form select {
+
+  padding: 12px;
+
+  border: 1px solid #ccc;
+
+  border-radius: 8px;
+}
+
+.inventory-form button {
+
+  padding: 12px;
+
+  border: none;
+
+  background: #2563eb;
+
+  color: white;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  background: white;
+}
+
+table th,
+table td {
+
+  border: 1px solid #ddd;
+
+  padding: 12px;
+
+  text-align: center;
+}
+
+table th {
+
+  background: #111827;
+
+  color: white;
+}
+
+.back-btn {
+
+  width: 40px;
+
+  height: 40px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #111827;
+
+  color: white;
+
+  cursor: pointer;
+
+  margin-bottom: 20px;
+}
+
+.delete-btn {
+
+  width: 35px;
+
+  height: 35px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: red;
+
+  color: white;
+
+  cursor: pointer;
+}
+
+.low-stock {
+  color: red;
+
+  font-weight: bold;
+}
+
+.in-stock {
+  color: green;
+
+  font-weight: bold;
+}
+.low-stock {
+  color: red;
+  font-weight: bold;
+}
+
+.in-stock {
+  color: green;
+}
+
+.low-row {
+  background-color: #ffe5e5;
+}

@@ -1,0 +1,135 @@
+.notification-page {
+  display: flex;
+  min-height: 100vh;
+  background: #f4f7fa;
+}
+
+/* =========================
+SIDEBAR
+========================= */
+
+.sidebar {
+  width: 220px;
+  background: #1f2937;
+  color: white;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-bottom: 30px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+/* =========================
+MAIN
+========================= */
+
+.notification-container {
+  flex: 1;
+  padding: 30px;
+}
+
+.notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.count-box {
+  background: #1f2937;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/* =========================
+CARD
+========================= */
+
+.notification-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.notification-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.notification-card h3 {
+  margin-bottom: 10px;
+}
+
+.notification-card p {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.notification-card span {
+  font-size: 13px;
+  color: gray;
+}
+
+/* =========================
+READ STATUS
+========================= */
+
+.unread {
+  border-left: 6px solid #ff9800;
+}
+
+.read {
+  opacity: 0.7;
+}
+
+/* =========================
+TYPE COLORS
+========================= */
+
+.notification-card.sale {
+  border-right: 6px solid #4CAF50;
+}
+
+.notification-card.purchase {
+  border-right: 6px solid #2196F3;
+}
+
+.notification-card.inventory {
+  border-right: 6px solid #F44336;
+}
+
+/* =========================
+BUTTON
+========================= */
+
+.read-btn {
+  border: none;
+  background: #1f2937;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.read-btn:hover {
+  opacity: 0.9;
+}
