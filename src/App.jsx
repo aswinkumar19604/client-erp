@@ -26,6 +26,12 @@ import ProtectedRoute
 from "./components/ProtectedRoute";
 import Inventory
 from "./pages/Inventory";
+import Accounting from "./pages/Accounting";
+import HR from "./pages/HR";
+import Payroll from "./pages/Payroll";
+import Projects from "./pages/Projects";
+import Leads from "./pages/Leads";
+import Expenses from "./pages/Expenses";
 function App() {
 
   return (
@@ -130,6 +136,54 @@ function App() {
           element={
             <ProtectedRoute>
               <Notifications />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/accounting"
+          element={
+            <ProtectedRoute>
+              <Accounting />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/hr"
+          element={
+            <ProtectedRoute>
+              <HR />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/payroll"
+          element={
+            <ProtectedRoute>
+              <Payroll />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/projects"
+          element={
+            <ProtectedRoute>
+              <Projects />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/leads"
+          element={
+            <ProtectedRoute>
+              <Leads />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/expenses"
+          element={
+            <ProtectedRoute>
+              <Expenses />
             </ProtectedRoute>
           }
         />

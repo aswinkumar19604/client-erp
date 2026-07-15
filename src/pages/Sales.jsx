@@ -25,6 +25,8 @@ function Sales() {
   const [products, setProducts] = useState([]);
   const [customers, setCustomers] = useState([]);
   const [sales, setSales] = useState([]);
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
   const [formData, setFormData] = useState({
 
@@ -176,6 +178,16 @@ const exportSalesExcel = async () => {
     alert("Excel export failed");
   }
 };
+  const filteredSales = sales.filter((sale) => {
+    if (!startDate && !endDate) return true;
+
+    const saleDate = new Date(sale.createdAt || sale.date || sale.updatedAt).toISOString().slice(0, 10);
+    const start = startDate || "0000-00-00";
+    const end = endDate || "9999-99-99";
+
+    return saleDate >= start && saleDate <= end;
+  });
+
   return (
 
     <div className="sales-container">
@@ -267,6 +279,17 @@ const exportSalesExcel = async () => {
 
       </form>
 
+      <div className="filter-row">
+        <label>
+          Start date
+          <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
+        </label>
+        <label>
+          End date
+          <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
+        </label>
+      </div>
+
       {/* TABLE */}
       <table>
 
@@ -284,7 +307,7 @@ const exportSalesExcel = async () => {
         </thead>
 
         <tbody>
-          {sales.map((sale) => (
+          {filteredSales.map((sale) => (
             <tr key={sale._id}>
 
               <td>{sale.invoiceNumber}</td>

@@ -21,10 +21,28 @@ function Inventory() {
   // HANDLE INPUT
   // =========================
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    const { name, value } = e.target;
+
+    if (name === "product") {
+      const selectedInventory = inventory.find((item) => {
+        const productId = item.product?._id || item.product;
+        return String(productId) === String(value);
+      });
+
+      setFormData((prev) => ({
+        ...prev,
+        product: value,
+        stockIn: selectedInventory ? String(selectedInventory.stockIn ?? "") : "",
+        stockOut: selectedInventory ? String(selectedInventory.stockOut ?? "") : "",
+        warehouse: selectedInventory?.warehouse || prev.warehouse
+      }));
+      return;
+    }
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   // =========================

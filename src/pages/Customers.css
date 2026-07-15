@@ -1,102 +1,101 @@
 .customer-container {
-  padding: 30px;
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+  margin: 24px;
 }
 
 .customer-form {
-
   display: grid;
-
-  grid-template-columns:
-    repeat(3, 1fr);
-
-  gap: 15px;
-
-  margin-bottom: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+  padding: 18px;
+  background: linear-gradient(135deg, #f8fbff 0%, #f1f5f9 100%);
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
 }
 
 .customer-form input {
-
-  padding: 12px;
-
-  border: 1px solid #ccc;
-
-  border-radius: 8px;
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #ffffff;
 }
 
 .customer-form button {
-
-  padding: 12px;
-
+  padding: 12px 14px;
   border: none;
-
-  background: black;
-
-  color: white;
-
-  border-radius: 8px;
-
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
+  border-radius: 10px;
   cursor: pointer;
+  font-weight: 600;
 }
 
 .search-box {
-
-  width: 300px;
-
-  padding: 12px;
-
-  margin-bottom: 20px;
-
-  border: 1px solid #ccc;
-
-  border-radius: 8px;
+  width: min(100%, 320px);
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #ffffff;
 }
 
 table {
-
   width: 100%;
-
   border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 12px;
 }
 
 table th,
 table td {
-
-  border: 1px solid #ddd;
-
-  padding: 12px;
-
+  border: 1px solid #e2e8f0;
+  padding: 12px 10px;
   text-align: center;
+}
+
+table th {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+table tr:nth-child(even) {
+  background: #f8fafc;
 }
 
 .edit-btn,
 .delete-btn,
 .back-btn {
-
-  width: 35px;
-
-  height: 35px;
-
+  width: 36px;
+  height: 36px;
   border: none;
-
-  border-radius: 50%;
-
+  border-radius: 999px;
   cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
 .edit-btn {
-  background: orange;
+  background: #f59e0b;
+  color: #ffffff;
 }
 
 .delete-btn {
-  background: red;
-  color: white;
+  background: #ef4444;
+  color: #ffffff;
 }
 
 .back-btn {
+  background: #0f172a;
+  color: #ffffff;
+  margin-bottom: 18px;
+}
 
-  background: black;
-
-  color: white;
-
-  margin-bottom: 20px;
+.edit-btn:hover,
+.delete-btn:hover,
+.back-btn:hover {
+  transform: translateY(-1px);
 }

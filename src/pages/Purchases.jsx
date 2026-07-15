@@ -23,6 +23,8 @@ function Purchases() {
   const [products, setProducts] = useState([]);
   const [suppliers, setSuppliers] = useState([]);
   const [purchases, setPurchases] = useState([]);
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
   const [formData, setFormData] = useState({
 
@@ -135,6 +137,16 @@ function Purchases() {
     }
   };
 
+  const filteredPurchases = purchases.filter((purchase) => {
+    if (!startDate && !endDate) return true;
+
+    const purchaseDate = new Date(purchase.createdAt || purchase.date || purchase.updatedAt).toISOString().slice(0, 10);
+    const start = startDate || "0000-00-00";
+    const end = endDate || "9999-99-99";
+
+    return purchaseDate >= start && purchaseDate <= end;
+  });
+
   return (
 
     <div className="purchase-container">
@@ -221,6 +233,17 @@ function Purchases() {
 
       </form>
 
+      <div className="filter-row">
+        <label>
+          Start date
+          <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
+        </label>
+        <label>
+          End date
+          <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
+        </label>
+      </div>
+
       {/* TABLE */}
       <table>
 
@@ -238,7 +261,7 @@ function Purchases() {
         </thead>
 
         <tbody>
-          {purchases.map((purchase) => (
+          {filteredPurchases.map((purchase) => (
             <tr key={purchase._id}>
 
               <td>{purchase.invoiceNumber}</td>

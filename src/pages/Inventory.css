@@ -1,124 +1,94 @@
 .inventory-container {
-  padding: 30px;
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+  margin: 24px;
 }
 
 .inventory-form {
   display: grid;
-
-  grid-template-columns:
-    repeat(4, 1fr);
-
-  gap: 15px;
-
-  margin-bottom: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+  padding: 18px;
+  background: linear-gradient(135deg, #f8fbff 0%, #f1f5f9 100%);
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
 }
 
 .inventory-form input,
 .inventory-form select {
-
-  padding: 12px;
-
-  border: 1px solid #ccc;
-
-  border-radius: 8px;
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #ffffff;
 }
 
 .inventory-form button {
-
-  padding: 12px;
-
+  padding: 12px 14px;
   border: none;
-
-  background: #2563eb;
-
-  color: white;
-
-  border-radius: 8px;
-
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
+  border-radius: 10px;
   cursor: pointer;
+  font-weight: 600;
 }
 
 table {
   width: 100%;
-
   border-collapse: collapse;
-
-  background: white;
+  background: #ffffff;
 }
 
 table th,
 table td {
-
-  border: 1px solid #ddd;
-
-  padding: 12px;
-
+  border: 1px solid #e2e8f0;
+  padding: 12px 10px;
   text-align: center;
 }
 
 table th {
+  background: #0f172a;
+  color: #ffffff;
+}
 
-  background: #111827;
-
-  color: white;
+table tr:nth-child(even) {
+  background: #f8fafc;
 }
 
 .back-btn {
-
   width: 40px;
-
   height: 40px;
-
   border: none;
-
-  border-radius: 50%;
-
+  border-radius: 999px;
   background: #111827;
-
-  color: white;
-
+  color: #ffffff;
   cursor: pointer;
-
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .delete-btn {
-
-  width: 35px;
-
-  height: 35px;
-
+  width: 36px;
+  height: 36px;
   border: none;
-
-  border-radius: 50%;
-
-  background: red;
-
-  color: white;
-
+  border-radius: 999px;
+  background: #ef4444;
+  color: #ffffff;
   cursor: pointer;
 }
 
 .low-stock {
-  color: red;
-
-  font-weight: bold;
+  color: #dc2626;
+  font-weight: 700;
 }
 
 .in-stock {
-  color: green;
-
-  font-weight: bold;
-}
-.low-stock {
-  color: red;
-  font-weight: bold;
-}
-
-.in-stock {
-  color: green;
+  color: #16a34a;
+  font-weight: 700;
 }
 
 .low-row {
-  background-color: #ffe5e5;
+  background-color: #fef2f2;
 }

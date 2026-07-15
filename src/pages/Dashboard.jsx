@@ -74,6 +74,12 @@ function Dashboard() {
 
           <li><Link to="/sales">Sales</Link></li>
           <li><Link to="/purchases">Purchases</Link></li>
+          <li><Link to="/accounting">Accounting</Link></li>
+          <li><Link to="/expenses">Expenses</Link></li>
+          <li><Link to="/hr">HR</Link></li>
+          <li><Link to="/payroll">Payroll</Link></li>
+          <li><Link to="/projects">Projects</Link></li>
+          <li><Link to="/leads">CRM Leads</Link></li>
           <li><Link to="/customers">Customers</Link></li>
           <li><Link to="/suppliers">Suppliers</Link></li>
 

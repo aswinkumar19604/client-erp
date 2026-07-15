@@ -1,0 +1,115 @@
+.leads-container {
+  padding: 24px;
+  color: #0f172a;
+}
+
+.leads-container h1 {
+  margin-bottom: 6px;
+}
+
+.section-subtitle {
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.summary-card {
+  background: linear-gradient(135deg, #eff6ff, #f8fafc);
+  border: 1px solid #dbeafe;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+}
+
+.summary-card h3 {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.summary-card p {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.leads-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  background: white;
+  padding: 16px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  margin-bottom: 20px;
+}
+
+.leads-form input,
+.leads-form select,
+.leads-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.leads-form textarea {
+  grid-column: 1 / -1;
+}
+
+.leads-form button,
+.edit-btn,
+.delete-btn {
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.leads-form button {
+  background: #2563eb;
+  color: white;
+  padding: 10px 14px;
+}
+
+.secondary-btn {
+  background: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+.edit-btn {
+  background: #f59e0b;
+  color: white;
+  padding: 7px 8px;
+  margin-right: 6px;
+}
+
+.delete-btn {
+  background: #dc2626;
+  color: white;
+  padding: 7px 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+th, td {
+  border-bottom: 1px solid #e2e8f0;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background: #f8fafc;
+}
