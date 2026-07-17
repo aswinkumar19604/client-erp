@@ -59,7 +59,7 @@ function Login() {
       if (response.data.user.role === "admin") {
         navigate("/dashboard");
       } else {
-        navigate("/dashboard");
+        navigate("/ess-portal");
       }
 
     } catch (error) {

@@ -1,13 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
 :root {
-  font-family: Inter, "Segoe UI", Roboto, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color: #0f172a;
-  background-color: #f3f6fb;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: #1e293b;
+  background-color: #f8fafc;
   color-scheme: light;
 }
 
@@ -21,29 +19,523 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background: linear-gradient(135deg, #f8fbff 0%, #eef4ff 100%);
-  color: #0f172a;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  color: #1e293b;
+  -webkit-font-smoothing: antialiased;
 }
 
 #root {
   min-height: 100vh;
 }
 
-button,
-input,
-select,
-textarea {
-  font: inherit;
+/* ==========================================
+   Typography & Headers
+   ========================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.03em;
 }
 
-a {
-  color: inherit;
+h1 {
+  font-size: 1.75rem;
+  margin-bottom: 6px;
 }
 
-h1,
-h2,
-h3,
-h4,
-p {
-  margin: 0;
+/* ==========================================
+   Global Inputs & Selects (Premium Form Elements)
+   ========================================== */
+input, select, textarea {
+  font-family: inherit;
+  padding: 10px 14px !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 8px !important;
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+  font-size: 0.9rem !important;
+  outline: none !important;
+  transition: all 0.2s ease-in-out !important;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04) !important;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12) !important;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 4px;
+}
+
+/* ==========================================
+   Buttons (ERP SaaS Style)
+   ========================================== */
+button, .btn {
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+button[type="submit"], .btn-primary {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15) !important;
+  border: none !important;
+}
+
+button[type="submit"]:hover, .btn-primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25) !important;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+}
+
+.back-btn {
+  background-color: #f1f5f9 !important;
+  color: #475569 !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 999px !important;
+  width: 40px !important;
+  height: 40px !important;
+  padding: 0 !important;
+  margin-bottom: 20px !important;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.02) !important;
+}
+
+.back-btn:hover {
+  background-color: #e2e8f0 !important;
+  color: #0f172a !important;
+  transform: scale(1.05);
+}
+
+/* ==========================================
+   Data Tables (Premium SaaS Style)
+   ========================================== */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 16px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  background: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.01);
+}
+
+table th, table td {
+  padding: 16px 20px !important;
+  text-align: left !important;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.88rem;
+  color: #334155;
+}
+
+table th {
+  background-color: #f8fafc !important;
+  color: #475569 !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.06em !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+table tr {
+  transition: background-color 0.15s ease !important;
+}
+
+table tr:hover td {
+  background-color: #f8fafc !important;
+}
+
+/* Action Buttons in tables */
+.edit-btn, .delete-btn, .btn-delete, .btn-order, .btn-cancel {
+  width: 32px !important;
+  height: 32px !important;
+  padding: 0 !important;
+  border-radius: 6px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 13px !important;
+}
+
+.edit-btn {
+  background-color: #fef3c7 !important;
+  color: #d97706 !important;
+}
+
+.edit-btn:hover {
+  background-color: #fde68a !important;
+}
+
+.delete-btn, .btn-delete, .btn-cancel {
+  background-color: #fee2e2 !important;
+  color: #dc2626 !important;
+}
+
+.delete-btn:hover, .btn-delete:hover, .btn-cancel:hover {
+  background-color: #fecaca !important;
+}
+
+.btn-order {
+  background-color: #dcfce7 !important;
+  color: #16a34a !important;
+  width: auto !important;
+  padding: 0 10px !important;
+}
+
+.btn-order:hover {
+  background-color: #bbf7d0 !important;
+}
+
+/* ==========================================
+   Premium Sidebar (Modern SaaS Layout)
+   ========================================== */
+.sidebar {
+  width: 270px;
+  background: #0f172a !important;
+  border-right: 1px solid #1e293b;
+  color: #94a3b8 !important;
+  padding: 24px 18px !important;
+  display: flex;
+  flex-direction: column;
+  box-shadow: none !important;
+  height: 100vh !important;
+  position: sticky !important;
+  top: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Custom scrollable ul inside sidebar */
+.sidebar ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  flex: 1 !important;
+  overflow-y: auto !important;
+  margin-bottom: 16px !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: #1e293b #0f172a !important;
+}
+
+/* Custom premium scrollbar for sidebar links */
+.sidebar ul::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+.sidebar ul::-webkit-scrollbar-track {
+  background: #0f172a !important;
+}
+
+.sidebar ul::-webkit-scrollbar-thumb {
+  background: #1e293b !important;
+  border-radius: 3px !important;
+}
+
+.sidebar ul::-webkit-scrollbar-thumb:hover {
+  background: #334155 !important;
+}
+
+.sidebar h2 {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  font-size: 1.3rem !important;
+  border-bottom: 1px solid #1e293b !important;
+  padding-bottom: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+.sidebar ul li {
+  margin-bottom: 4px !important;
+}
+
+.sidebar ul li a {
+  color: #94a3b8 !important;
+  font-weight: 500;
+  padding: 12px 16px !important;
+  border-radius: 10px !important;
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s ease !important;
+}
+
+.sidebar ul li a:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #ffffff !important;
+  transform: translateX(4px);
+}
+
+.sidebar ul li.active a,
+.sidebar ul li a.active {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2) !important;
+}
+
+.logout-btn {
+  margin-top: auto !important;
+  background: #1e293b !important;
+  color: #f8fafc !important;
+  border: 1px solid #334155 !important;
+  border-radius: 8px !important;
+}
+
+.logout-btn:hover {
+  background: #ef4444 !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2) !important;
+}
+
+/* ==========================================
+   Cards & Layout Panels
+   ========================================== */
+.main-content, 
+.po-container, 
+.grn-container, 
+.employee-container, 
+.purchase-container, 
+.sales-container, 
+.inventory-container, 
+.customers-container, 
+.suppliers-container, 
+.accounting-container, 
+.expenses-container, 
+.hr-container, 
+.leads-container, 
+.projects-container, 
+.payroll-container, 
+.notifications-container,
+.audit-container,
+.mrp-container,
+.quote-container,
+.so-container,
+.ess-container,
+.history-container {
+  flex: 1;
+  padding: 32px !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-radius: 20px !important;
+  border: 1px solid rgba(226, 232, 240, 0.8) !important;
+  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02) !important;
+  margin: 28px !important;
+  animation: fadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  backdrop-filter: blur(8px);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-container, .summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card, .summary-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(226, 232, 240, 0.9) !important;
+  border-radius: 16px !important;
+  padding: 24px !important;
+  box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.02), 0 2px 4px -1px rgba(15, 23, 42, 0.01) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative top gradient accent for cards */
+.card::before, .summary-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6 0%, #6366f1 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover::before, .summary-card:hover::before {
+  opacity: 1;
+}
+
+.card:hover, .summary-card:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(59, 130, 246, 0.4) !important;
+  box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.08), 0 10px 10px -5px rgba(59, 130, 246, 0.03) !important;
+}
+
+.card h3, .summary-card h3 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.card p, .summary-card p {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* ==========================================
+   Responsive Overrides
+   ========================================== */
+
+/* Tablet Viewports */
+@media (max-width: 1024px) {
+  .dashboard, .po-layout, .grn-layout, .ledger-layout, .report-layout {
+    flex-direction: column !important;
+  }
+
+  .sidebar {
+    width: 100% !important;
+    padding: 16px 20px !important;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08) !important;
+    background: #0f172a !important;
+    height: auto !important;
+    position: relative !important;
+    overflow-y: visible !important;
+  }
+
+  .sidebar h2 {
+    margin-bottom: 16px !important;
+    padding-bottom: 10px !important;
+    text-align: left !important;
+  }
+
+  .sidebar ul {
+    display: flex !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    gap: 8px !important;
+    padding-bottom: 10px !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+    margin-bottom: 0 !important;
+    flex: none !important;
+  }
+
+  .sidebar ul::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .sidebar ul li {
+    margin-bottom: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .sidebar ul li a {
+    white-space: nowrap !important;
+    padding: 8px 12px !important;
+    font-size: 0.85rem !important;
+  }
+
+  .logout-btn {
+    margin-top: 10px !important;
+    padding: 8px 12px !important;
+    width: auto !important;
+    float: right !important;
+    font-size: 0.85rem !important;
+  }
+}
+
+/* Mobile Viewports */
+@media (max-width: 768px) {
+  .main-content, 
+  .po-container, 
+  .grn-container, 
+  .ledger-container,
+  .report-container,
+  .employee-container, 
+  .purchase-container, 
+  .sales-container, 
+  .inventory-container, 
+  .customers-container, 
+  .suppliers-container, 
+  .accounting-container, 
+  .expenses-container, 
+  .hr-container, 
+  .leads-container, 
+  .projects-container, 
+  .payroll-container, 
+  .notifications-container {
+    padding: 20px 14px !important;
+    margin: 12px 8px !important;
+    border-radius: 12px !important;
+  }
+
+  .employee-form, 
+  .purchase-form, 
+  .sales-form, 
+  .supplier-form, 
+  .customer-form,
+  .hr-form,
+  .po-form-card form,
+  .grn-form-card form {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding: 14px !important;
+  }
+
+  .form-group-row, 
+  .item-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+  
+  .item-row select, 
+  .item-row input {
+    width: 100% !important;
+  }
+
+  table {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  
+  .card-container,
+  .summary-grid,
+  .hr-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .topbar {
+    padding: 14px 16px !important;
+  }
+  
+  .topbar h1 {
+    font-size: 1.25rem !important;
+  }
 }

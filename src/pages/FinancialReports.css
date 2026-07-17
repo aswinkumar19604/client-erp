@@ -1,0 +1,255 @@
+.report-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f1f5f9;
+}
+
+.report-container {
+  flex: 1;
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+  margin: 24px;
+  overflow-x: hidden;
+}
+
+.report-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.print-btn {
+  background: #475569;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.print-btn:hover {
+  background: #1e293b;
+}
+
+.subtitle {
+  color: #64748b;
+  margin-top: -6px;
+  margin-bottom: 24px;
+}
+
+.tab-switcher {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 12px;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  padding: 10px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.tab-btn:hover {
+  background: #f8fafc;
+  color: #1e293b;
+}
+
+.tab-btn.active {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.report-sheet {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.01);
+}
+
+.report-title {
+  text-align: center;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.report-date-range {
+  text-align: center;
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+
+.balance-check-badge {
+  background: #dcfce7;
+  border: 1px solid #86efac;
+  color: #16a34a;
+  padding: 10px 14px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.financial-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.financial-table th,
+.financial-table td {
+  border-bottom: 1px solid #e2e8f0;
+  padding: 12px 14px;
+  text-align: left;
+}
+
+.financial-table th {
+  background: #f8fafc;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.amount-header {
+  text-align: right !important;
+}
+
+.section-header-tr {
+  background: #f8fafc;
+  font-weight: 700;
+  color: #475569;
+}
+
+.indent-td {
+  padding-left: 32px !important;
+}
+
+.amount-td {
+  text-align: right !important;
+  font-weight: 600;
+}
+
+.subtotal-tr {
+  font-weight: 700;
+  color: #334155;
+  background: #f1f5f9;
+}
+
+.subtotal-tr .amount-td {
+  border-top: 1.5px solid #94a3b8;
+  border-bottom: 1.5px solid #94a3b8;
+}
+
+.grand-total-tr {
+  font-weight: 800;
+  font-size: 1.05rem;
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.grand-total-tr .amount-td {
+  border-top: 2px solid #0f172a;
+  border-bottom: 4px double #0f172a;
+}
+
+.positive-net {
+  background: #dcfce7 !important;
+  color: #15803d !important;
+}
+
+.positive-net .amount-td {
+  border-top: 2px solid #16a34a !important;
+  border-bottom: 4px double #16a34a !important;
+}
+
+.negative-net {
+  background: #fee2e2 !important;
+  color: #b91c1c !important;
+}
+
+.negative-net .amount-td {
+  border-top: 2px solid #ef4444 !important;
+  border-bottom: 4px double #ef4444 !important;
+}
+
+.print-header {
+  display: none;
+}
+
+/* Print CSS Media Queries */
+@media print {
+  body {
+    background: #ffffff;
+    color: #000000;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+
+  .report-layout {
+    display: block !important;
+    min-height: auto !important;
+    background: none !important;
+  }
+
+  .report-container {
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: none !important;
+  }
+
+  .print-header {
+    display: block !important;
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 10px;
+  }
+
+  .report-sheet {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+  
+  .financial-table th {
+    background: #ffffff !important;
+    border-bottom: 2px solid #000000 !important;
+    color: #000000 !important;
+  }
+  
+  .section-header-tr {
+    background: #ffffff !important;
+  }
+  
+  .subtotal-tr {
+    background: #ffffff !important;
+  }
+  
+  .grand-total-tr {
+    background: #ffffff !important;
+  }
+}

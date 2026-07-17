@@ -1,0 +1,53 @@
+/* Custom Scrollbars for Chat Feed */
+.messages-feed::-webkit-scrollbar {
+  width: 6px;
+}
+
+.messages-feed::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.messages-feed::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.3);
+  border-radius: 20px;
+}
+
+.colleagues-sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.colleagues-sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.colleagues-sidebar::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.2);
+  border-radius: 20px;
+}
+
+/* Status Pill Custom Badges */
+.status-pill.badge-green {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.status-pill.badge-red {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.status-pill.badge-purple {
+  background-color: #f3e8ff;
+  color: #7e22ce;
+}
+
+.status-pill.badge-blue {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+/* Sidebar lists animations */
+.colleagues-sidebar button:hover {
+  transform: translateY(-1px);
+  background-color: #f1f5f9;
+}

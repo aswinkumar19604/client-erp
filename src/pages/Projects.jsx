@@ -10,6 +10,8 @@ function Projects() {
   const [projects, setProjects] = useState([]);
   const [summary, setSummary] = useState({});
   const [editingId, setEditingId] = useState(null);
+  const [employees, setEmployees] = useState([]);
+  
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -19,17 +21,19 @@ function Projects() {
     priority: "Medium",
     startDate: "",
     endDate: "",
-    tasks: []
+    assignee: "" // Store the assigned employee email directly here
   });
 
   const getProjects = async () => {
     try {
-      const [projectsRes, summaryRes] = await Promise.all([
+      const [projectsRes, summaryRes, employeesRes] = await Promise.all([
         API.get("/projects"),
-        API.get("/projects/summary")
+        API.get("/projects/summary"),
+        API.get("/employees")
       ]);
       setProjects(projectsRes.data);
       setSummary(summaryRes.data);
+      setEmployees(employeesRes.data);
     } catch (error) {
       console.log(error);
     }
@@ -53,7 +57,7 @@ function Projects() {
       priority: "Medium",
       startDate: "",
       endDate: "",
-      tasks: []
+      assignee: ""
     });
     setEditingId(null);
   };
@@ -61,13 +65,35 @@ function Projects() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // Build the tasks array containing one default task assigned to the selected employee
+      const finalTasks = formData.assignee ? [{
+        title: `Deliverable task for ${formData.title}`,
+        assignee: formData.assignee.trim().toLowerCase(),
+        dueDate: formData.endDate || null,
+        status: "Pending"
+      }] : [];
+
+      const payload = {
+        title: formData.title,
+        description: formData.description,
+        client: formData.client,
+        manager: formData.manager,
+        status: formData.status,
+        priority: formData.priority,
+        startDate: formData.startDate || null,
+        endDate: formData.endDate || null,
+        tasks: finalTasks
+      };
+
       if (editingId) {
-        await API.put(`/projects/${editingId}`, formData);
+        await API.put(`/projects/${editingId}`, payload);
       } else {
-        await API.post("/projects", formData);
+        await API.post("/projects", payload);
       }
+      
       resetForm();
       getProjects();
+      alert("Project saved successfully!");
     } catch (error) {
       alert(error.response?.data?.message || "Unable to save project");
     }
@@ -75,6 +101,9 @@ function Projects() {
 
   const handleEdit = (project) => {
     setEditingId(project._id);
+    // Find the assignee from the first task if it exists
+    const assigneeEmail = project.tasks && project.tasks.length > 0 ? project.tasks[0].assignee : "";
+    
     setFormData({
       title: project.title,
       description: project.description || "",
@@ -84,7 +113,7 @@ function Projects() {
       priority: project.priority,
       startDate: project.startDate ? project.startDate.slice(0, 10) : "",
       endDate: project.endDate ? project.endDate.slice(0, 10) : "",
-      tasks: project.tasks || []
+      assignee: assigneeEmail
     });
   };
 
@@ -107,7 +136,7 @@ function Projects() {
       </button>
 
       <h1>Project Management</h1>
-      <p className="section-subtitle">Plan projects, track status, and manage project tasks.</p>
+      <p className="section-subtitle">Plan projects, assign team leads, and track status parameters.</p>
 
       <div className="summary-grid">
         <div className="summary-card">
@@ -132,20 +161,29 @@ function Projects() {
         <input type="text" name="title" placeholder="Project title" value={formData.title} onChange={handleChange} required />
         <input type="text" name="client" placeholder="Client" value={formData.client} onChange={handleChange} />
         <input type="text" name="manager" placeholder="Manager" value={formData.manager} onChange={handleChange} />
-        <select name="status" value={formData.status} onChange={handleChange}>
-          <option value="Planning">Planning</option>
-          <option value="In Progress">In Progress</option>
-          <option value="On Hold">On Hold</option>
-          <option value="Completed">Completed</option>
-        </select>
+        
+
         <select name="priority" value={formData.priority} onChange={handleChange}>
           <option value="Low">Low</option>
           <option value="Medium">Medium</option>
           <option value="High">High</option>
         </select>
+
+        {/* Dynamic Assignee Dropdown */}
+        <select name="assignee" value={formData.assignee} onChange={handleChange} required>
+          <option value="">Select Assignee Employee</option>
+          {employees.map(emp => (
+            <option key={emp._id} value={emp.email}>
+              {emp.name} ({emp.email})
+            </option>
+          ))}
+        </select>
+
         <input type="date" name="startDate" value={formData.startDate} onChange={handleChange} />
         <input type="date" name="endDate" value={formData.endDate} onChange={handleChange} />
+        
         <textarea name="description" placeholder="Project description" value={formData.description} onChange={handleChange} rows="3" />
+        
         <button type="submit">{editingId ? "Update Project" : "Add Project"}</button>
         {editingId ? <button type="button" className="secondary-btn" onClick={resetForm}>Cancel</button> : null}
       </form>
@@ -156,6 +194,7 @@ function Projects() {
             <th>Title</th>
             <th>Client</th>
             <th>Manager</th>
+            <th>Assignee</th>
             <th>Status</th>
             <th>Priority</th>
             <th>Start</th>
@@ -164,21 +203,25 @@ function Projects() {
           </tr>
         </thead>
         <tbody>
-          {projects.map((project) => (
-            <tr key={project._id}>
-              <td>{project.title}</td>
-              <td>{project.client || "-"}</td>
-              <td>{project.manager || "-"}</td>
-              <td>{project.status}</td>
-              <td>{project.priority}</td>
-              <td>{project.startDate ? new Date(project.startDate).toLocaleDateString() : "-"}</td>
-              <td>{project.endDate ? new Date(project.endDate).toLocaleDateString() : "-"}</td>
-              <td>
-                <button className="edit-btn" onClick={() => handleEdit(project)}><FaEdit /></button>
-                <button className="delete-btn" onClick={() => handleDelete(project._id)}><FaTrash /></button>
-              </td>
-            </tr>
-          ))}
+          {projects.map((project) => {
+            const assigneeEmail = project.tasks && project.tasks.length > 0 ? project.tasks[0].assignee : "Unassigned";
+            return (
+              <tr key={project._id}>
+                <td>{project.title}</td>
+                <td>{project.client || "-"}</td>
+                <td>{project.manager || "-"}</td>
+                <td><strong>{assigneeEmail}</strong></td>
+                <td>{project.status}</td>
+                <td>{project.priority}</td>
+                <td>{project.startDate ? new Date(project.startDate).toLocaleDateString() : "-"}</td>
+                <td>{project.endDate ? new Date(project.endDate).toLocaleDateString() : "-"}</td>
+                <td>
+                  <button className="edit-btn" onClick={() => handleEdit(project)}><FaEdit /></button>
+                  <button className="delete-btn" onClick={() => handleDelete(project._id)}><FaTrash /></button>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>

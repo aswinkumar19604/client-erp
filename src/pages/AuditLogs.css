@@ -1,0 +1,234 @@
+.audit-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f1f5f9;
+}
+
+.audit-container {
+  flex: 1;
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+  margin: 24px;
+  overflow-x: hidden;
+}
+
+.subtitle {
+  color: #64748b;
+  margin-top: -6px;
+  margin-bottom: 24px;
+}
+
+/* Filter Card Layout */
+.filter-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 16px 24px;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.01);
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-item select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #0f172a;
+  outline: none;
+  font-weight: 500;
+}
+
+.search-bar {
+  flex: 1;
+  position: relative;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 8px 12px 8px 36px !important;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  outline: none;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  color: #94a3b8;
+}
+
+.filter-icon {
+  color: #64748b;
+}
+
+/* Module Badges */
+.module-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.module-badge.sales {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.module-badge.purchases {
+  background: #fdf2f8;
+  color: #db2777;
+}
+
+.module-badge.accounting {
+  background: #f0fdf4;
+  color: #16a34a;
+}
+
+.module-badge.hr {
+  background: #faf5ff;
+  color: #9333ea;
+}
+
+.module-badge.mrp {
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+.module-badge.inventory {
+  background: #f0fdfa;
+  color: #0d9488;
+}
+
+/* Action Badges */
+.action-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.action-badge.create {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.action-badge.update {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.action-badge.delete {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.details-txt {
+  font-weight: 500;
+  color: #334155;
+  word-break: break-word;
+}
+
+.btn-action.view-diff {
+  background: #f8fafc;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+
+.btn-action.view-diff:hover {
+  background: #cbd5e1;
+  color: #0f172a;
+}
+
+/* Collapsible Inspection Panel styles */
+.collapsible-details-row td {
+  background: #f8fafc !important;
+  padding: 0 24px 24px 24px !important;
+  border-top: none !important;
+}
+
+.diff-inspect-panel {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: inset 0 2px 4px rgba(15, 23, 42, 0.03);
+}
+
+.diff-inspect-panel h4 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #0f172a;
+  font-size: 0.95rem;
+}
+
+.diff-inspect-panel p {
+  margin-bottom: 12px;
+  font-size: 0.88rem;
+  color: #475569;
+}
+
+.json-box {
+  background: #0f172a;
+  color: #38bdf8;
+  font-family: Consolas, Monaco, monospace;
+  font-size: 0.85rem;
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.empty-diff-txt {
+  color: #64748b;
+  font-size: 0.88rem;
+  margin: 0;
+}
+
+.loading-txt {
+  text-align: center;
+  color: #64748b;
+  padding: 40px;
+  font-weight: 500;
+}
+
+.empty-row-txt {
+  text-align: center;
+  color: #64748b;
+  padding: 30px !important;
+}
+
+.expanded-row-tr td {
+  border-bottom: none !important;
+}
+
+@media (max-width: 768px) {
+  .filter-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

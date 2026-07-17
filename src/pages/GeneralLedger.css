@@ -1,0 +1,204 @@
+.ledger-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f1f5f9;
+}
+
+.ledger-container {
+  flex: 1;
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+  margin: 24px;
+  overflow-x: hidden;
+}
+
+.subtitle {
+  color: #64748b;
+  margin-top: -6px;
+  margin-bottom: 24px;
+}
+
+.tab-switcher {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 12px;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.tab-btn:hover {
+  background: #f8fafc;
+  color: #1e293b;
+}
+
+.tab-btn.active {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.accounts-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+}
+
+.accounts-card h3 {
+  margin-top: 0;
+  color: #1e293b;
+  margin-bottom: 18px;
+}
+
+.category-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.category-badge.asset {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.category-badge.liability {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.category-badge.equity {
+  background: #f3e8ff;
+  color: #9333ea;
+}
+
+.category-badge.revenue {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.category-badge.expense {
+  background: #ffedd5;
+  color: #ea580c;
+}
+
+.balance-cell {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* Journal Entry Voucher Cards */
+.je-voucher-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.je-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.je-num {
+  font-size: 1.1rem;
+  color: #1e293b;
+}
+
+.je-date {
+  font-size: 0.88rem;
+  color: #64748b;
+}
+
+.je-ref-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: #f1f5f9;
+  color: #475569;
+  text-transform: uppercase;
+}
+
+.je-ref-badge.sale {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.je-ref-badge.purchase {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.je-ref-badge.expense {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.je-desc {
+  color: #475569;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+.je-lines-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.je-lines-table th,
+.je-lines-table td {
+  border: none;
+  border-bottom: 1px solid #f1f5f9;
+  padding: 8px 10px;
+  text-align: left;
+}
+
+.je-lines-table th {
+  background: #f8fafc;
+  color: #64748b;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.debit-col {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.credit-col {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.no-entries-text {
+  text-align: center;
+  color: #64748b;
+  padding: 40px;
+  background: #ffffff;
+  border: 1px dashed #cbd5e1;
+  border-radius: 16px;
+}
