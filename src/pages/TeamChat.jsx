@@ -67,7 +67,7 @@ function TeamChat() {
     if (!userEmail) return;
 
     // Connect to backend WebSocket server
-    const newSocket = io(import.meta.env.VITE_SOCKET_URL || "http://localhost:5000");
+    const newSocket = io(import.meta.env.VITE_SOCKET_URL || "https://server-erp-3.onrender.com");
     setSocket(newSocket);
 
     // Register room
