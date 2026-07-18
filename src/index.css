@@ -539,3 +539,33 @@ table tr:hover td {
     font-size: 1.25rem !important;
   }
 }
+
+/* ==========================================
+   Global Footer Copyright Notice
+   ========================================== */
+.sidebar::after {
+  content: "© 2026 Aswin. All rights reserved.";
+  display: block;
+  font-size: 0.72rem;
+  color: #64748b;
+  text-align: center;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid #1e293b;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.ess-sidebar::after {
+  content: "© 2026 Aswin. All rights reserved.";
+  display: block;
+  font-size: 0.72rem;
+  color: #64748b;
+  text-align: center;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid #1e293b;
+  width: 100%;
+  flex-shrink: 0;
+}
+
