@@ -30,7 +30,7 @@ function TeamChat() {
 
   const getColleagues = async () => {
     try {
-      const res = await API.get("/employees");
+      const res = await API.get("/auth/users");
       // Filter out yourself from the list
       const list = res.data.filter(emp => emp.email !== userEmail);
       setColleagues(list);
