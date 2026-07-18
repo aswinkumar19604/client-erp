@@ -408,61 +408,180 @@ table tr:hover td {
    Responsive Overrides
    ========================================== */
 
+/* ==========================================
+   Responsive Overrides
+   ========================================== */
+
+/* Sidebar Section Separator */
+.sidebar-section-title {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: #475569;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  padding: 16px 16px 8px 16px;
+  margin-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Sidebar close button hidden on desktop */
+.sidebar-brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1e293b;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.sidebar-brand h2 {
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+.sidebar-brand .close-btn {
+  display: none !important;
+}
+
+/* Mobile top header hidden on desktop */
+.mobile-header {
+  display: none !important;
+}
+
 /* Tablet Viewports */
 @media (max-width: 1024px) {
-  .dashboard, .po-layout, .grn-layout, .ledger-layout, .report-layout {
+  .dashboard, 
+  .po-layout, 
+  .grn-layout, 
+  .ledger-layout, 
+  .report-layout,
+  .mrp-layout,
+  .quotations-layout,
+  .so-layout,
+  .history-layout,
+  .chat-layout,
+  .audit-layout {
     flex-direction: column !important;
   }
 
-  .sidebar {
-    width: 100% !important;
-    padding: 16px 20px !important;
-    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08) !important;
-    background: #0f172a !important;
-    height: auto !important;
-    position: relative !important;
-    overflow-y: visible !important;
-  }
-
-  .sidebar h2 {
-    margin-bottom: 16px !important;
-    padding-bottom: 10px !important;
-    text-align: left !important;
-  }
-
-  .sidebar ul {
+  /* Mobile Header Styling */
+  .mobile-header {
     display: flex !important;
-    overflow-x: auto !important;
-    overflow-y: visible !important;
-    gap: 8px !important;
-    padding-bottom: 10px !important;
-    scrollbar-width: none !important;
-    -webkit-overflow-scrolling: touch !important;
-    margin-bottom: 0 !important;
-    flex: none !important;
+    align-items: center;
+    justify-content: space-between;
+    background: #0f172a;
+    color: #ffffff;
+    padding: 12px 20px;
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
   }
 
-  .sidebar ul::-webkit-scrollbar {
-    display: none !important;
+  .mobile-logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.01em;
   }
 
-  .sidebar ul li {
-    margin-bottom: 0 !important;
-    flex-shrink: 0 !important;
+  .hamburger-btn {
+    background: transparent !important;
+    border: none !important;
+    color: #94a3b8 !important;
+    font-size: 1.4rem !important;
+    padding: 6px !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none !important;
   }
 
-  .sidebar ul li a {
-    white-space: nowrap !important;
-    padding: 8px 12px !important;
-    font-size: 0.85rem !important;
+  .hamburger-btn:hover {
+    color: #ffffff !important;
+    transform: none !important;
   }
 
-  .logout-btn {
-    margin-top: 10px !important;
-    padding: 8px 12px !important;
-    width: auto !important;
-    float: right !important;
-    font-size: 0.85rem !important;
+  /* Collapsible Sidebar Drawer */
+  .sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    left: -290px !important;
+    width: 280px !important;
+    height: 100vh !important;
+    z-index: 1002 !important;
+    transition: left 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    box-shadow: 20px 0 40px rgba(0,0,0,0.3) !important;
+  }
+
+  .sidebar.open {
+    left: 0 !important;
+  }
+
+  .sidebar-brand .close-btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    background: transparent !important;
+    border: none !important;
+    color: #94a3b8 !important;
+    font-size: 1.2rem !important;
+    padding: 8px !important;
+    cursor: pointer;
+    box-shadow: none !important;
+  }
+
+  .sidebar-brand .close-btn:hover {
+    color: #ffffff !important;
+    transform: none !important;
+  }
+
+  /* Sidebar Backdrop Overlay */
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 1001;
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Adjust main container to clear space if flex-direction changes */
+  .main-content, 
+  .po-container, 
+  .grn-container, 
+  .ledger-container, 
+  .report-container,
+  .employee-container, 
+  .purchase-container, 
+  .sales-container, 
+  .inventory-container, 
+  .customers-container, 
+  .suppliers-container, 
+  .accounting-container, 
+  .expenses-container, 
+  .hr-container, 
+  .leads-container, 
+  .projects-container, 
+  .payroll-container, 
+  .notifications-container,
+  .audit-container,
+  .mrp-container,
+  .quote-container,
+  .so-container,
+  .ess-container,
+  .history-container {
+    margin: 16px 12px !important;
   }
 }
 
@@ -485,9 +604,15 @@ table tr:hover td {
   .leads-container, 
   .projects-container, 
   .payroll-container, 
-  .notifications-container {
-    padding: 20px 14px !important;
-    margin: 12px 8px !important;
+  .notifications-container,
+  .audit-container,
+  .mrp-container,
+  .quote-container,
+  .so-container,
+  .ess-container,
+  .history-container {
+    padding: 16px 12px !important;
+    margin: 10px 6px !important;
     border-radius: 12px !important;
   }
 
@@ -502,7 +627,7 @@ table tr:hover td {
     display: flex !important;
     flex-direction: column !important;
     gap: 12px !important;
-    padding: 14px !important;
+    padding: 12px !important;
   }
 
   .form-group-row, 
@@ -532,11 +657,11 @@ table tr:hover td {
   }
 
   .topbar {
-    padding: 14px 16px !important;
+    padding: 12px 14px !important;
   }
   
   .topbar h1 {
-    font-size: 1.25rem !important;
+    font-size: 1.2rem !important;
   }
 }
 

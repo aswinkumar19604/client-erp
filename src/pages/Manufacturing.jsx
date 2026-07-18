@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaHammer, FaClipboardList, FaPlus, FaTrash, FaCheckCircle, FaTimesCircle, FaPlay } from "react-icons/fa";
 import API from "../services/api";
 import "./Manufacturing.css";
+import Sidebar from "../components/Sidebar";
 
 function Manufacturing() {
   const navigate = useNavigate();
@@ -30,10 +31,6 @@ function Manufacturing() {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
-  const logout = () => {
-    localStorage.clear();
-    navigate("/");
-  };
 
   const fetchData = async () => {
     try {
@@ -153,44 +150,7 @@ function Manufacturing() {
   return (
     <div className="mrp-layout">
       {/* SIDEBAR */}
-      <div className="sidebar">
-        <h2>ERP System</h2>
-        <ul>
-          <li><Link to="/dashboard">Dashboard</Link></li>
-          <li><Link to="/ess-portal">ESS Portal</Link></li>
-          <li><Link to="/team-chat">Team Chat</Link></li>
-          {role === "admin" && (
-            <>
-              <li><Link to="/employees">Employees</Link></li>
-              <li><Link to="/products">Products</Link></li>
-              <li><Link to="/inventory">Inventory</Link></li>
-              <li><Link to="/stock-history">Stock History</Link></li>
-              <li><Link to="/notifications">Notifications</Link></li>
-              <li><Link to="/sales">Sales</Link></li>
-              <li><Link to="/quotations">Quotations</Link></li>
-              <li><Link to="/sales-orders">Sales Orders</Link></li>
-              <li><Link to="/purchases">Purchases</Link></li>
-              <li><Link to="/purchase-orders">Purchase Orders</Link></li>
-              <li><Link to="/goods-receipts">Goods Receipts</Link></li>
-              <li><Link to="/general-ledger">General Ledger</Link></li>
-              <li><Link to="/financial-reports">Financial Reports</Link></li>
-              <li><Link to="/accounting">Accounting</Link></li>
-              <li><Link to="/expenses">Expenses</Link></li>
-              <li><Link to="/hr">HR</Link></li>
-              <li><Link to="/payroll">Payroll</Link></li>
-              <li className="active"><Link to="/manufacturing">Manufacturing</Link></li>
-              <li><Link to="/projects">Projects</Link></li>
-              <li><Link to="/leads">CRM Leads</Link></li>
-              <li><Link to="/customers">Customers</Link></li>
-              <li><Link to="/suppliers">Suppliers</Link></li>
-              <li><Link to="/audit-logs">Audit Logs</Link></li>
-            </>
-          )}
-        </ul>
-        <button className="logout-btn" onClick={logout}>
-          Logout
-        </button>
-      </div>
+      <Sidebar activePage="manufacturing" />
 
       {/* MAIN CONTAINER */}
       <div className="mrp-container">

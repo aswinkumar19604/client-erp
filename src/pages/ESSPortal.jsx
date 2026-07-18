@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaClock, FaCalendarAlt, FaFileInvoiceDollar, FaSignOutAlt, FaCheckCircle, FaUserAlt, FaComments, FaTasks } from "react-icons/fa";
+import { FaClock, FaCalendarAlt, FaFileInvoiceDollar, FaSignOutAlt, FaCheckCircle, FaUserAlt, FaComments, FaTasks, FaBars, FaTimes } from "react-icons/fa";
 import API from "../services/api";
 import "./ESSPortal.css";
 
@@ -15,6 +15,7 @@ function ESSPortal() {
   const [activeTab, setActiveTab] = useState("dashboard"); // 'dashboard', 'leave', 'payroll', 'tasks'
   const [errorMsg, setErrorMsg] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   // Admin view simulator states
   const [employeeList, setEmployeeList] = useState([]);
@@ -174,25 +175,39 @@ function ESSPortal() {
 
   return (
     <div className="ess-layout">
+      {/* Mobile Top Bar */}
+      <div className="mobile-header no-print">
+        <h2 className="mobile-logo">ESS Portal</h2>
+        <button className="hamburger-btn" onClick={() => setIsSidebarOpen(!isSidebarOpen)} aria-label="Toggle Menu">
+          <FaBars />
+        </button>
+      </div>
+
+      {/* Backdrop Overlay when Sidebar is open on mobile */}
+      {isSidebarOpen && <div className="sidebar-overlay no-print" onClick={() => setIsSidebarOpen(false)}></div>}
+
       {/* SIDE NAVIGATION */}
-      <div className="ess-sidebar">
-        <div className="brand-logo">
+      <div className={`ess-sidebar no-print ${isSidebarOpen ? "open" : ""}`}>
+        <div className="sidebar-brand">
           <h2>ESS Portal</h2>
+          <button className="close-btn" onClick={() => setIsSidebarOpen(false)} aria-label="Close Menu">
+            <FaTimes />
+          </button>
         </div>
         <ul>
-          <li className={activeTab === "dashboard" ? "active" : ""} onClick={() => { setActiveTab("dashboard"); setErrorMsg(""); setSuccessMsg(""); }}>
+          <li className={activeTab === "dashboard" ? "active" : ""} onClick={() => { setActiveTab("dashboard"); setErrorMsg(""); setSuccessMsg(""); setIsSidebarOpen(false); }}>
             <FaClock /> Dashboard & Attendance
           </li>
-          <li className={activeTab === "leave" ? "active" : ""} onClick={() => { setActiveTab("leave"); setErrorMsg(""); setSuccessMsg(""); }}>
+          <li className={activeTab === "leave" ? "active" : ""} onClick={() => { setActiveTab("leave"); setErrorMsg(""); setSuccessMsg(""); setIsSidebarOpen(false); }}>
             <FaCalendarAlt /> Apply Leave
           </li>
-          <li className={activeTab === "payroll" ? "active" : ""} onClick={() => { setActiveTab("payroll"); setErrorMsg(""); setSuccessMsg(""); }}>
+          <li className={activeTab === "payroll" ? "active" : ""} onClick={() => { setActiveTab("payroll"); setErrorMsg(""); setSuccessMsg(""); setIsSidebarOpen(false); }}>
             <FaFileInvoiceDollar /> Payslips & Salary
           </li>
-          <li className={activeTab === "tasks" ? "active" : ""} onClick={() => { setActiveTab("tasks"); setErrorMsg(""); setSuccessMsg(""); }}>
+          <li className={activeTab === "tasks" ? "active" : ""} onClick={() => { setActiveTab("tasks"); setErrorMsg(""); setSuccessMsg(""); setIsSidebarOpen(false); }}>
             <FaTasks /> Assigned Tasks
           </li>
-          <li onClick={() => navigate("/team-chat")}>
+          <li onClick={() => { navigate("/team-chat"); setIsSidebarOpen(false); }}>
             <FaComments /> Team Chat
           </li>
         </ul>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaHistory, FaBoxOpen } from "react-icons/fa";
 import API from "../services/api";
+import Sidebar from "../components/Sidebar";
 
 function StockHistory() {
   const navigate = useNavigate();
@@ -11,10 +12,6 @@ function StockHistory() {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
-  const logout = () => {
-    localStorage.clear();
-    navigate("/");
-  };
 
   const getHistory = async () => {
     try {
@@ -67,44 +64,7 @@ function StockHistory() {
   return (
     <div className="history-layout" style={{ display: 'flex', minHeight: '100vh' }}>
       {/* SIDEBAR */}
-      <div className="sidebar">
-        <h2>ERP System</h2>
-        <ul>
-          <li><Link to="/dashboard">Dashboard</Link></li>
-          <li><Link to="/ess-portal">ESS Portal</Link></li>
-          <li><Link to="/team-chat">Team Chat</Link></li>
-          {role === "admin" && (
-            <>
-              <li><Link to="/employees">Employees</Link></li>
-              <li><Link to="/products">Products</Link></li>
-              <li><Link to="/inventory">Inventory</Link></li>
-              <li className="active"><Link to="/stock-history">Stock History</Link></li>
-              <li><Link to="/manufacturing">Manufacturing</Link></li>
-              <li><Link to="/notifications">Notifications</Link></li>
-              <li><Link to="/sales">Sales</Link></li>
-              <li><Link to="/quotations">Quotations</Link></li>
-              <li><Link to="/sales-orders">Sales Orders</Link></li>
-              <li><Link to="/purchases">Purchases</Link></li>
-              <li><Link to="/purchase-orders">Purchase Orders</Link></li>
-              <li><Link to="/goods-receipts">Goods Receipts</Link></li>
-              <li><Link to="/general-ledger">General Ledger</Link></li>
-              <li><Link to="/financial-reports">Financial Reports</Link></li>
-              <li><Link to="/accounting">Accounting</Link></li>
-              <li><Link to="/expenses">Expenses</Link></li>
-              <li><Link to="/hr">HR</Link></li>
-              <li><Link to="/payroll">Payroll</Link></li>
-              <li><Link to="/projects">Projects</Link></li>
-              <li><Link to="/leads">CRM Leads</Link></li>
-              <li><Link to="/customers">Customers</Link></li>
-              <li><Link to="/suppliers">Suppliers</Link></li>
-              <li><Link to="/audit-logs">Audit Logs</Link></li>
-            </>
-          )}
-        </ul>
-        <button className="logout-btn" onClick={logout}>
-          Logout
-        </button>
-      </div>
+      <Sidebar activePage="stock-history" />
 
       {/* MAIN CONTENT */}
       <div className="history-container">

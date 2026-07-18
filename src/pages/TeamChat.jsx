@@ -4,6 +4,7 @@ import { io } from "socket.io-client";
 import { FaArrowLeft, FaPaperPlane, FaUserCircle, FaComments, FaCircle } from "react-icons/fa";
 import API from "../services/api";
 import "./TeamChat.css";
+import Sidebar from "../components/Sidebar";
 
 function TeamChat() {
   const navigate = useNavigate();
@@ -23,10 +24,6 @@ function TeamChat() {
 
   const messagesEndRef = useRef(null);
 
-  const logout = () => {
-    localStorage.clear();
-    navigate("/");
-  };
 
   const getColleagues = async () => {
     try {
@@ -116,46 +113,7 @@ function TeamChat() {
   return (
     <div className="chat-layout" style={{ display: 'flex', minHeight: '100vh' }}>
       {/* SIDEBAR */}
-      <div className="sidebar">
-        <h2>ERP System</h2>
-        <ul>
-          {role === "admin" ? (
-            <li><Link to="/dashboard">Dashboard</Link></li>
-          ) : (
-            <li><Link to="/ess-portal">ESS Portal</Link></li>
-          )}
-          {role === "admin" && (
-            <>
-              <li><Link to="/employees">Employees</Link></li>
-              <li><Link to="/products">Products</Link></li>
-              <li><Link to="/inventory">Inventory</Link></li>
-              <li><Link to="/stock-history">Stock History</Link></li>
-              <li><Link to="/manufacturing">Manufacturing</Link></li>
-              <li><Link to="/notifications">Notifications</Link></li>
-              <li><Link to="/sales">Sales</Link></li>
-              <li><Link to="/quotations">Quotations</Link></li>
-              <li><Link to="/sales-orders">Sales Orders</Link></li>
-              <li><Link to="/purchases">Purchases</Link></li>
-              <li><Link to="/purchase-orders">Purchase Orders</Link></li>
-              <li><Link to="/goods-receipts">Goods Receipts</Link></li>
-              <li><Link to="/general-ledger">General Ledger</Link></li>
-              <li><Link to="/financial-reports">Financial Reports</Link></li>
-              <li><Link to="/accounting">Accounting</Link></li>
-              <li><Link to="/expenses">Expenses</Link></li>
-              <li><Link to="/hr">HR</Link></li>
-              <li><Link to="/payroll">Payroll</Link></li>
-              <li><Link to="/projects">Projects</Link></li>
-              <li><Link to="/leads">CRM Leads</Link></li>
-              <li><Link to="/customers">Customers</Link></li>
-              <li><Link to="/suppliers">Suppliers</Link></li>
-              <li><Link to="/audit-logs">Audit Logs</Link></li>
-            </>
-          )}
-        </ul>
-        <button className="logout-btn" onClick={logout}>
-          Logout
-        </button>
-      </div>
+      <Sidebar activePage="team-chat" />
 
       {/* MAIN CONTENT */}
       <div className="chat-container-shell" style={{ flex: 1, display: 'flex', flexDirection: 'column', margin: '28px', background: 'rgba(255, 255, 255, 0.95)', border: '1px solid rgba(226, 232, 240, 0.8)', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 10px 30px -10px rgba(15, 23, 42, 0.04)' }}>

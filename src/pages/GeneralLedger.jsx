@@ -3,21 +3,16 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import API from "../services/api";
 import "./GeneralLedger.css";
+import Sidebar from "../components/Sidebar";
 
 function GeneralLedger() {
   const navigate = useNavigate();
-  const role = localStorage.getItem("role");
 
   const [accounts, setAccounts] = useState([]);
   const [entries, setEntries] = useState([]);
   const [activeTab, setActiveTab] = useState("accounts"); // 'accounts' or 'journals'
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-
-  const logout = () => {
-    localStorage.clear();
-    navigate("/");
-  };
 
   const getAccounts = async () => {
     try {
@@ -30,7 +25,7 @@ function GeneralLedger() {
 
   const getEntries = async () => {
     try {
-      const res = await API.get("/double-entry/journal-entries");
+      const res = await API.get("/double-entry/journals");
       setEntries(res.data);
     } catch (err) {
       console.log(err);
@@ -53,44 +48,7 @@ function GeneralLedger() {
   return (
     <div className="ledger-layout">
       {/* SIDEBAR */}
-      <div className="sidebar">
-        <h2>ERP System</h2>
-        <ul>
-          <li><Link to="/dashboard">Dashboard</Link></li>
-          <li><Link to="/ess-portal">ESS Portal</Link></li>
-          <li><Link to="/team-chat">Team Chat</Link></li>
-          {role === "admin" && (
-            <>
-              <li><Link to="/employees">Employees</Link></li>
-              <li><Link to="/products">Products</Link></li>
-              <li><Link to="/inventory">Inventory</Link></li>
-              <li><Link to="/stock-history">Stock History</Link></li>
-              <li><Link to="/manufacturing">Manufacturing</Link></li>
-              <li><Link to="/notifications">Notifications</Link></li>
-              <li><Link to="/sales">Sales</Link></li>
-              <li><Link to="/quotations">Quotations</Link></li>
-              <li><Link to="/sales-orders">Sales Orders</Link></li>
-              <li><Link to="/purchases">Purchases</Link></li>
-              <li><Link to="/purchase-orders">Purchase Orders</Link></li>
-              <li><Link to="/goods-receipts">Goods Receipts</Link></li>
-              <li className="active"><Link to="/general-ledger">General Ledger</Link></li>
-              <li><Link to="/financial-reports">Financial Reports</Link></li>
-              <li><Link to="/accounting">Accounting</Link></li>
-              <li><Link to="/expenses">Expenses</Link></li>
-              <li><Link to="/hr">HR</Link></li>
-              <li><Link to="/payroll">Payroll</Link></li>
-              <li><Link to="/projects">Projects</Link></li>
-              <li><Link to="/leads">CRM Leads</Link></li>
-              <li><Link to="/customers">Customers</Link></li>
-              <li><Link to="/suppliers">Suppliers</Link></li>
-              <li><Link to="/audit-logs">Audit Logs</Link></li>
-            </>
-          )}
-        </ul>
-        <button className="logout-btn" onClick={logout}>
-          Logout
-        </button>
-      </div>
+      <Sidebar activePage="general-ledger" />
 
       {/* MAIN CONTENT */}
       <div className="ledger-container">
