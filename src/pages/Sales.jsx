@@ -331,7 +331,7 @@ const exportSalesExcel = async () => {
                   className="pdf-btn"
                   onClick={() => {
                     window.location.href =
-                      `http://localhost:5000/api/invoice/${sale._id}`;
+                      `${import.meta.env.VITE_API_URL || "https://server-erp-3.onrender.com/api"}/invoice/${sale._id}`;
                   }}
                 >
                   <FaFilePdf />

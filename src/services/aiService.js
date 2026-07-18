@@ -1,23 +1,10 @@
-import axios from "axios";
-
-const API_URL = "http://localhost:5000/api/ai/chat";
+import API from "./api";
 
 export const sendMessage = async (message) => {
     try {
-
-        const token = localStorage.getItem("token");
-
-        const response = await axios.post(
-            API_URL,
-            {
-                message
-            },
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            }
-        );
+        const response = await API.post("/ai/chat", {
+            message
+        });
 
         return response.data.reply;
 
